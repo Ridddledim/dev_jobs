@@ -1,0 +1,23 @@
+<div class="card mb-4">
+    <div class="card-body px-4">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-9">
+                <a href="{{ vacancy.get_absolute_url }}">
+                    <h2 class="h2 pb-2">{{ vacancy }}</h2>
+                </a>
+                <p class="mb-2">
+                    {% if vacancy.skills %}
+                        {{ vacancy.skills }}
+                    {% else %}
+                        Требования не указаны
+                    {% endif %}
+                </p>
+                <p>От {{ vacancy.salary_min }} до {{ vacancy.salary_max }} руб.</p>
+                <p class="text-muted pt-1">{{ vacancy.published_at|date:'j E' }}</p>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 d-flex align-items-end">
+                <img src="{{ vacancy.company.logo }}" width="130" height="80" alt="">
+            </div>
+        </div>
+    </div>
+</div>
